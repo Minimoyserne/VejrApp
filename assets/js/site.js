@@ -1,23 +1,23 @@
 
-//knap til godkendelse af loaktion. 
-const button = document.querySelector('#geolocation-button');
+// //knap til godkendelse af loaktion. 
+// const button = document.querySelector('#geolocation-button');
 
-// Lyt efter klikhændelse på knappen
-button.addEventListener('click', () => {
-  // Anmod om geolokaliseringsoplysninger
-  navigator.geolocation.getCurrentPosition(position => {
-    // Brug geolokaliseringsoplysningerne til at gøre noget
-    const { latitude, longitude } = position.coords;
-    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-  }, error => {
-    // Håndter fejl, hvis anmodningen mislykkes
-    console.error(error);
-  });
-});
+// // Lyt efter klikhændelse på knappen
+// button.addEventListener('click', () => {
+//   // Anmod om geolokaliseringsoplysninger
+//   navigator.geolocation.getCurrentPosition(position => {
+//     // Brug geolokaliseringsoplysningerne til at gøre noget
+//     const { latitude, longitude } = position.coords;
+//     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+//   }, error => {
+//     // Håndter fejl, hvis anmodningen mislykkes
+//     console.error(error);
+//   });
+// });
 
 
 
-const myApp = document.getElementById('app');
+const myApp = document.getElementById('myApp');
 
 const geoOptions = {
     enableHighAccuracy: true,
