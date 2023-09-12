@@ -69,8 +69,7 @@ navigator.geolocation.getCurrentPosition(position => {
     // Construct the URL for the weather API
     //const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=YOUR_API_KEY`;
   
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,windspeed_10m,winddirection_10m,uv_index&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset&timezone=Europe%2FBerlin`;
-
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,windspeed_10m,winddirection_10m,uv_index&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_max,rain_sum,windspeed_10m_max,winddirection_10m_dominant&timezone=Europe%2FBerlin`;
 
     
     // Fetch the weather data for the user's current location
@@ -113,9 +112,83 @@ function makeDayaData(data) {
     const vejrTypeIDag = data.hourly.weathercode[0];
     console.log(vejrTypeIDag);
 
+    //Vindhastighed lige nu og 8 timer frem(2 timer int.) 
+    const vindhastighedNu = data.hourly.windspeed_10m[0];
+    console.log(vindhastighedNu);
+    const vindhastighedom2Timer = data.hourly.windspeed_10m[2];
+    console.log(vindhastighedom2Timer);
+    const vindhastighedOm4Timer = data.hourly.windspeed_10m[4];
+    console.log(vindhastighedOm4Timer);
+    const vindhastighedOm6Timer = data.hourly.windspeed_10m[6];
+    console.log(vindhastighedOm6Timer);
+    const vindhastighedOm8Timer = data.hourly.windspeed_10m[8];
+    console.log(vindhastighedOm8Timer);
 
+    //Vindretning lige nu og 8 timer frem(2 timer int.) 
+    const vindretningNu = data.hourly.winddirection_10m[0];
+    console.log(vindretningNu);
+    const vindretningImorgen = data.hourly.winddirection_10m[1];
+    console.log(vindretningImorgen);
+    const vindretningOm3Dage = data.hourly.winddirection_10m[2];
+    console.log(vindretningOm3Dage);
+    const vindretningOm4Dage = data.hourly.winddirection_10m[3];
+    console.log(vindretningOm4Dage);
+    const vindretningOm5Dage = data.hourly.winddirection_10m[4];
+    console.log(vindretningOm5Dage);
 
+    //Temperaturen lige nu og 8 timer frem(2 timer int.)
+    const temperaturNu = data.hourly.temperature_2m[0];
+    console.log(temperaturNu);
+    const temperaturOm2Timer = data.hourly.temperature_2m[2];
+    console.log(temperaturOm2Timer);
+    const temperaturOm4Timer = data.hourly.temperature_2m[4];
+    console.log(temperaturOm4Timer);
+    const temperaturOm6Timer = data.hourly.temperature_2m[6];
+    console.log(temperaturOm6Timer);
+    const temperaturOm8Timer = data.hourly.temperature_2m[8];
+    console.log(temperaturOm8Timer);
+
+    //UV maks lige nu og 6 timer frem(2 timer int.)
+    const uvMaksNu = data.hourly.uv_index[0];
+    console.log(uvMaksNu);
+    const uvMaksOm2Timer = data.hourly.uv_index[2];
+    console.log(uvMaksOm2Timer);
+    const uvMaksOm4Timer = data.hourly.uv_index[4];
+    console.log(uvMaksOm4Timer);
+    const uvMaksOm6Timer = data.hourly.uv_index[6];
+    console.log(uvMaksOm6Timer);
     
+    //Luftfugtighed lige nu og 6 timer frem(2 timer int.)
+    const luftfugtighedNu = data.hourly.relativehumidity_2m[0];
+    console.log(luftfugtighedNu);
+    const luftfugtighedOm2Timer = data.hourly.relativehumidity_2m[2];
+    console.log(luftfugtighedOm2Timer);
+    const luftfugtighedOm4Timer = data.hourly.relativehumidity_2m[4];
+    console.log(luftfugtighedOm4Timer);
+    const luftfugtighedOm6Timer = data.hourly.relativehumidity_2m[6];
+    console.log(luftfugtighedOm6Timer);
+
+    //Nedbør lige nu og 6 timer frem(2 timer int.)
+    const nedbørNu = data.hourly.precipitation[0];
+    console.log(nedbørNu);
+    const nedbørOm2Timer = data.hourly.precipitation[2];
+    console.log(nedbørOm2Timer);
+    const nedbørOm4Timer = data.hourly.precipitation[4];
+    console.log(nedbørOm4Timer);
+    const nedbørOm6Timer = data.hourly.precipitation[6];
+    console.log(nedbørOm6Timer);
+
+    //datoen i dag
+    const datoIDag = data.daily.time[0];
+    console.log(datoIDag);
+
+    //Klokken lige nu. 
+    const dato = new Date();
+    const timenNu = dato.getHours();
+    const minutNu = dato.getMinutes();
+    //console.log(`${timenNu}:${minutNu}`);
+    const TidNu = `${timenNu}:${minutNu}`
+    console.log(TidNu);
 }
 
 
@@ -125,93 +198,64 @@ function makeWeekData(data) {
     //Vejr typen 
     const vejrTypeIMorgen = data.hourly.weathercode[1];
     console.log(vejrTypeIMorgen);
-    const vejrTypeOm3Dage = data.hourly.weathercode[2];
+    const vejrTypeOm2Dage = data.hourly.weathercode[2];
+    console.log(vejrTypeOm2Dage);
+    const vejrTypeOm3Dage = data.hourly.weathercode[3];
     console.log(vejrTypeOm3Dage);
-    const vejrTypeOm4Dage = data.hourly.weathercode[3];
+    const vejrTypeOm4Dage = data.hourly.weathercode[4];
     console.log(vejrTypeOm4Dage);
-    const vejrTypeOm5Dage = data.hourly.weathercode[4];
+    const vejrTypeOm5Dage = data.hourly.weathercode[5];
     console.log(vejrTypeOm5Dage);
 
+    //Vindhastighed 5 dage frem 
+    const vindhastighedImorgen = data.daily.windspeed_10m_max[1];
+    console.log(vindhastighedImorgen);
+    const vindhastighedOm2Dage = data.daily.windspeed_10m_max[2];
+    console.log(vindhastighedOm2Dage);
+    const vindhastighedOm3Dage = data.daily.windspeed_10m_max[3];
+    console.log(vindhastighedOm3Dage);
+    const vindhastighedOm4Dage = data.daily.windspeed_10m_max[4];
+    console.log(vindhastighedOm4Dage);
+    const vindhastighedOm5Dage = data.daily.windspeed_10m_max[5];
+    console.log(vindhastighedOm5Dage);
 
-}
+    //Vindretning 5 dage frem  
+    const vindretningImorgen = data.daily.winddirection_10m_dominant[1];
+    console.log(vindretningImorgen);
+    const vindretningOm2Dage = data.daily.winddirection_10m_dominant[2];
+    console.log(vindretningOm2Dage);
+    const vindretningOm3Dage = data.daily.winddirection_10m_dominant[3];
+    console.log(vindretningOm3Dage);
+    const vindretningOm4Dage = data.daily.winddirection_10m_dominant[4];
+    console.log(vindretningOm4Dage);
+    const vindretningOm5Dage = data.daily.winddirection_10m_dominant[5];
+    console.log(vindretningOm5Dage);
+
+    //Max temperaturen 5 dage frem
+    const temperaturIMorgen = data.daily.temperature_2m_max[1];
+    console.log(temperaturIMorgen);
+    const temperaturOm2Dage = data.daily.temperature_2m_max[2];
+    console.log(temperaturOm2Dage);
+    const temperaturOm3Dage = data.daily.temperature_2m_max[3];
+    console.log(temperaturOm3Dage);
+    const temperaturOm4Dage = data.daily.temperature_2m_max[4];
+    console.log(temperaturOm4Dage);
+    const temperaturOm5Dage = data.daily.temperature_2m_max[5];
+    console.log(temperaturOm5Dage);
+    }
 
 
-//Vindhastighed lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
-const vindhastighedNu = data.hourly.windspeed_10m[0];
-const vindhastighedImorgen = data.hourly.windspeed_10m[1];
-const vindhastighedOm3Dage = data.hourly.windspeed_10m[2];
-const vindhastighedOm4Dage = data.hourly.windspeed_10m[3];
-const vindhastighedOm5Dage = data.hourly.windspeed_10m[4];
-console.log(vindhastighedNu);
-console.log(vindhastighedImorgen);
-console.log(vindhastighedOm3Dage);
-console.log(vindhastighedOm4Dage);
-console.log(vindhastighedOm5Dage);
 
-//Vindretning lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
-const vindretningNu = data.hourly.winddirection_10m[0];
-const vindretningImorgen = data.hourly.winddirection_10m[1];
-const vindretningOm3Dage = data.hourly.winddirection_10m[2];
-const vindretningOm4Dage = data.hourly.winddirection_10m[3];
-const vindretningOm5Dage = data.hourly.winddirection_10m[4];
-console.log(vindretningNu);
-console.log(vindretningImorgen);
-console.log(vindretningOm3Dage);
-console.log(vindretningOm4Dage);
-console.log(vindretningOm5Dage);
 
-//Temperaturen lige nu og 8 timer frem(2 timer int.) og 5 dage frem
-const temperaturNu = data.hourly.temperature_2m[0];
-const temperaturOm2Timer = data.hourly.temperature_2m[2];
-const temperaturOm4Timer = data.hourly.temperature_2m[4];
-const temperaturOm6Timer = data.hourly.temperature_2m[6];
-const temperaturOm8Timer = data.hourly.temperature_2m[8];
-console.log(temperaturNu);
-console.log(temperaturOm2Timer);
-console.log(temperaturOm4Timer);
-console.log(temperaturOm6Timer);
-console.log(temperaturOm8Timer);
 
-//UV maks lige nu og 6 timer frem(2 timer int.)
-const uvMaksNu = data.hourly.uv_index[0];
-const uvMaksOm2Timer = data.hourly.uv_index[2];
-const uvMaksOm4Timer = data.hourly.uv_index[4];
-const uvMaksOm6Timer = data.hourly.uv_index[6];
-console.log(uvMaksNu);
-console.log(uvMaksOm2Timer);
-console.log(uvMaksOm4Timer);
-console.log(uvMaksOm6Timer);
 
-//Luftfugtighed lige nu og 6 timer frem(2 timer int.)
-const luftfugtighedNu = data.hourly.relativehumidity_2m[0];
-const luftfugtighedOm2Timer = data.hourly.relativehumidity_2m[2];
-const luftfugtighedOm4Timer = data.hourly.relativehumidity_2m[4];
-const luftfugtighedOm6Timer = data.hourly.relativehumidity_2m[6];
-console.log(luftfugtighedNu);
-console.log(luftfugtighedOm2Timer);
-console.log(luftfugtighedOm4Timer);
-console.log(luftfugtighedOm6Timer);
 
-//Nedbør lige nu og 6 timer frem(2 timer int.)
-const nedbørNu = data.hourly.precipitation[0];
-const nedbørOm2Timer = data.hourly.precipitation[2];
-const nedbørOm4Timer = data.hourly.precipitation[4];
-const nedbørOm6Timer = data.hourly.precipitation[6];
-console.log(nedbørNu);
-console.log(nedbørOm2Timer);
-console.log(nedbørOm4Timer);
-console.log(nedbørOm6Timer);
 
-//datoen i dag
-const datoIDag = data.daily.time[0];
-console.log(datoIDag);
 
-//Klokken lige nu. 
-const dato = new Date();
-const timenNu = dato.getHours();
-const minutNu = dato.getMinutes();
-console.log(`${timenNu}:${minutNu}`);
-const TidNu = `${timenNu}:${minutNu}`
-console.log(TidNu);
+
+
+
+
+
 
 
