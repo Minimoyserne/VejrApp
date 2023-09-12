@@ -78,12 +78,36 @@ navigator.geolocation.getCurrentPosition(position => {
       .then((response) => response.json())
       .then((data) => {
     //console.table(data);
-    //console.log(data.daily);
-    // console.log(data.hourly);
+    dayData = data;
+    weekData = data; 
+       
+    makeDayaData(data);
+    makeWeekData(data);
+   
 
+})
+.catch(error => console.error(error));
+});
 
     // variabler vi skal bruge
+function makeDayaData(data) {
+  //  console.log(data.daily);
+    //console.log(data.hourly);
+    const solop = data.daily.sunrise[0];
+const solopgang = solop.split("T")[1].slice(0, 5);
+console.log(solopgang);
+}
 
+function makeWeekData(data) {
+    const vejrTypeIMorgen = data.hourly.weathercode[1];
+const vejrTypeOm3Dage = data.hourly.weathercode[2];
+const vejrTypeOm4Dage = data.hourly.weathercode[3];
+const vejrTypeOm5Dage = data.hourly.weathercode[4];
+console.log(vejrTypeIMorgen);
+console.log(vejrTypeOm3Dage);
+console.log(vejrTypeOm4Dage);
+console.log(vejrTypeOm5Dage);
+}
 
 //solopgangs tidspunkt
 const solop = data.daily.sunrise[0];
@@ -193,6 +217,4 @@ console.log(`${timenNu}:${minutNu}`);
 const TidNu = `${timenNu}:${minutNu}`
 console.log(TidNu);
 
-      })
-      .catch(error => console.error(error));
-  });
+
