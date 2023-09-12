@@ -81,76 +81,117 @@ navigator.geolocation.getCurrentPosition(position => {
     //console.log(data.daily);
     // console.log(data.hourly);
 
-// Extract the weather conditions from the API response
+
+    // variabler vi skal bruge
 
 
+//solopgangs tidspunkt
+const solop = data.daily.sunrise[0];
+const solopgang = solop.split("T")[1].slice(0, 5);
+console.log(solopgang);
 
-        //solopgang
-        console.log(data.daily.sunrise[0]);
-        //solnedgang
-        console.log(data.daily.sunset[0]);
-        //Højeste temperatur på dagen
-        console.log(data.daily.temperature_2m_max[0]);
-        //Laveste temperatur på dagen
-        console.log(data.daily.temperature_2m_min[0]);
-        //Vejr typen lige nu og 5 dage frem - kode nummeret der kommer ud skal kobles sammen med WMO som er beskrevet i wiki
-        console.log(data.hourly.weathercode[0]); //i dag
-        console.log(data.hourly.weathercode[1]); //i morgen
-        console.log(data.hourly.weathercode[2]); //3 dage frem
-        console.log(data.hourly.weathercode[3]); //4 dage frem
-        console.log(data.hourly.weathercode[4]); //5 dage frem
+//solnedgangs tidspunkt
+const solned = data.daily.sunset[0];
+const solnedgang = solned.split("T")[1].slice(0, 5);
+console.log(solnedgang);
 
-        //Vindhastighed lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
-        console.log(data.hourly.windspeed_10m[0]); //i dag
-        console.log(data.hourly.windspeed_10m[1]); //i morgen
-        console.log(data.hourly.windspeed_10m[2]); //3 dage frem
-        console.log(data.hourly.windspeed_10m[3]); //4 dage frem
-        console.log(data.hourly.windspeed_10m[4]); //5dage frem
-        
-        //Vindretning lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
-        console.log(data.hourly.winddirection_10m[0]); //i dag
-        console.log(data.hourly.winddirection_10m[1]); //i morgen
-        console.log(data.hourly.winddirection_10m[2]); //3 dage frem
-        console.log(data.hourly.winddirection_10m[3]); //4 dage frem
-        console.log(data.hourly.winddirection_10m[4]); //5dage frem
+//Højeste temperatur på dagen
+const maxTemperatur = data.daily.temperature_2m_max[0];
+console.log(maxTemperatur);
 
-        //Temperaturen lige nu og 8 timer frem(2 timer int.) og 5 dage frem
-        console.log(data.hourly.temperature_2m[0]); //nu
-        console.log(data.hourly.temperature_2m[2]); //om 2 timer
-        console.log(data.hourly.temperature_2m[4]); //om 4 timer
-        console.log(data.hourly.temperature_2m[6]); //om 6 timer
-        console.log(data.hourly.temperature_2m[8]); //om 8 timer
+//Laveste temperatur på dagen
+const minTemperatur = data.daily.temperature_2m_min[0];
+console.log(minTemperatur);
 
-        //UV maks lige nu og 6 timer frem(2 timer int.)
-        console.log(data.hourly.uv_index[0]); //nu
-        console.log(data.hourly.uv_index[2]); //om 2 timer
-        console.log(data.hourly.uv_index[4]); //om 4 timer
-        console.log(data.hourly.uv_index[6]); //om 6 timer
+//Vejr typen lige nu og 5 dage frem - kode nummeret der kommer ud skal kobles sammen med WMO som er beskrevet i wiki
+const vejrTypeIDag = data.hourly.weathercode[0];
+const vejrTypeIMorgen = data.hourly.weathercode[1];
+const vejrTypeOm3Dage = data.hourly.weathercode[2];
+const vejrTypeOm4Dage = data.hourly.weathercode[3];
+const vejrTypeOm5Dage = data.hourly.weathercode[4];
+console.log(vejrTypeIDag);
+console.log(vejrTypeIMorgen);
+console.log(vejrTypeOm3Dage);
+console.log(vejrTypeOm4Dage);
+console.log(vejrTypeOm5Dage);
 
-        //Luftfugtighed lige nu og 6 timer frem(2 timer int.)
-        console.log(data.hourly.relativehumidity_2m[0]); //nu
-        console.log(data.hourly.relativehumidity_2m[2]); //om 2 timer
-        console.log(data.hourly.relativehumidity_2m[4]); //om 4 timer
-        console.log(data.hourly.relativehumidity_2m[6]); //om 6 timer
+//Vindhastighed lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
+const vindhastighedNu = data.hourly.windspeed_10m[0];
+const vindhastighedImorgen = data.hourly.windspeed_10m[1];
+const vindhastighedOm3Dage = data.hourly.windspeed_10m[2];
+const vindhastighedOm4Dage = data.hourly.windspeed_10m[3];
+const vindhastighedOm5Dage = data.hourly.windspeed_10m[4];
+console.log(vindhastighedNu);
+console.log(vindhastighedImorgen);
+console.log(vindhastighedOm3Dage);
+console.log(vindhastighedOm4Dage);
+console.log(vindhastighedOm5Dage);
 
-        //Nedbør lige nu og 6 timer frem(2 timer int.)
-        console.log(data.hourly.precipitation[0]); //nu
-        console.log(data.hourly.precipitation[2]); //om 2 timer
-        console.log(data.hourly.precipitation[4]); //om 4 timer
-        console.log(data.hourly.precipitation[6]); //om 6 timer
+//Vindretning lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
+const vindretningNu = data.hourly.winddirection_10m[0];
+const vindretningImorgen = data.hourly.winddirection_10m[1];
+const vindretningOm3Dage = data.hourly.winddirection_10m[2];
+const vindretningOm4Dage = data.hourly.winddirection_10m[3];
+const vindretningOm5Dage = data.hourly.winddirection_10m[4];
+console.log(vindretningNu);
+console.log(vindretningImorgen);
+console.log(vindretningOm3Dage);
+console.log(vindretningOm4Dage);
+console.log(vindretningOm5Dage);
 
-        //datoen i dag
-        console.log(data.daily.time);
+//Temperaturen lige nu og 8 timer frem(2 timer int.) og 5 dage frem
+const temperaturNu = data.hourly.temperature_2m[0];
+const temperaturOm2Timer = data.hourly.temperature_2m[2];
+const temperaturOm4Timer = data.hourly.temperature_2m[4];
+const temperaturOm6Timer = data.hourly.temperature_2m[6];
+const temperaturOm8Timer = data.hourly.temperature_2m[8];
+console.log(temperaturNu);
+console.log(temperaturOm2Timer);
+console.log(temperaturOm4Timer);
+console.log(temperaturOm6Timer);
+console.log(temperaturOm8Timer);
 
-        //Klokken lige nu. 
-        const now = new Date();
-        const currentHour = now.getHours();
-        const currentMinute = now.getMinutes();
-       
-        
-        console.log(` ${currentHour}:${currentMinute}`);
+//UV maks lige nu og 6 timer frem(2 timer int.)
+const uvMaksNu = data.hourly.uv_index[0];
+const uvMaksOm2Timer = data.hourly.uv_index[2];
+const uvMaksOm4Timer = data.hourly.uv_index[4];
+const uvMaksOm6Timer = data.hourly.uv_index[6];
+console.log(uvMaksNu);
+console.log(uvMaksOm2Timer);
+console.log(uvMaksOm4Timer);
+console.log(uvMaksOm6Timer);
 
-        
+//Luftfugtighed lige nu og 6 timer frem(2 timer int.)
+const luftfugtighedNu = data.hourly.relativehumidity_2m[0];
+const luftfugtighedOm2Timer = data.hourly.relativehumidity_2m[2];
+const luftfugtighedOm4Timer = data.hourly.relativehumidity_2m[4];
+const luftfugtighedOm6Timer = data.hourly.relativehumidity_2m[6];
+console.log(luftfugtighedNu);
+console.log(luftfugtighedOm2Timer);
+console.log(luftfugtighedOm4Timer);
+console.log(luftfugtighedOm6Timer);
+
+//Nedbør lige nu og 6 timer frem(2 timer int.)
+const nedbørNu = data.hourly.precipitation[0];
+const nedbørOm2Timer = data.hourly.precipitation[2];
+const nedbørOm4Timer = data.hourly.precipitation[4];
+const nedbørOm6Timer = data.hourly.precipitation[6];
+console.log(nedbørNu);
+console.log(nedbørOm2Timer);
+console.log(nedbørOm4Timer);
+console.log(nedbørOm6Timer);
+
+//datoen i dag
+const datoIDag = data.daily.time[0];
+console.log(datoIDag);
+
+//Klokken lige nu. 
+const dato = new Date();
+const timenNu = dato.getHours();
+const minutNu = dato.getMinutes();
+console.log(`${timenNu}:${minutNu}`);
+const TidNu = `${timenNu}:${minutNu}`
+console.log(TidNu);
 
       })
       .catch(error => console.error(error));
