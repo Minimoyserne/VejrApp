@@ -89,55 +89,52 @@ navigator.geolocation.getCurrentPosition(position => {
 .catch(error => console.error(error));
 });
 
-    // variabler vi skal bruge
+
 function makeDayaData(data) {
-  //  console.log(data.daily);
-    //console.log(data.hourly);
+    //solopgangs tidspunkt
     const solop = data.daily.sunrise[0];
-const solopgang = solop.split("T")[1].slice(0, 5);
-console.log(solopgang);
+    const solopgang = solop.split("T")[1].slice(0, 5);
+    console.log(solopgang);
+
+    //solnedgangs tidspunkt
+    const solned = data.daily.sunset[0];
+    const solnedgang = solned.split("T")[1].slice(0, 5);
+    console.log(solnedgang);
+
+    //Højeste temperatur på dagen
+    const maxTemperatur = data.daily.temperature_2m_max[0];
+    console.log(maxTemperatur);
+
+    //Laveste temperatur på dagen
+    const minTemperatur = data.daily.temperature_2m_min[0];
+    console.log(minTemperatur);
+
+    //Vejr typen 
+    const vejrTypeIDag = data.hourly.weathercode[0];
+    console.log(vejrTypeIDag);
+
+
+
+    
 }
+
+
+
 
 function makeWeekData(data) {
+    //Vejr typen 
     const vejrTypeIMorgen = data.hourly.weathercode[1];
-const vejrTypeOm3Dage = data.hourly.weathercode[2];
-const vejrTypeOm4Dage = data.hourly.weathercode[3];
-const vejrTypeOm5Dage = data.hourly.weathercode[4];
-console.log(vejrTypeIMorgen);
-console.log(vejrTypeOm3Dage);
-console.log(vejrTypeOm4Dage);
-console.log(vejrTypeOm5Dage);
+    console.log(vejrTypeIMorgen);
+    const vejrTypeOm3Dage = data.hourly.weathercode[2];
+    console.log(vejrTypeOm3Dage);
+    const vejrTypeOm4Dage = data.hourly.weathercode[3];
+    console.log(vejrTypeOm4Dage);
+    const vejrTypeOm5Dage = data.hourly.weathercode[4];
+    console.log(vejrTypeOm5Dage);
+
+
 }
 
-//solopgangs tidspunkt
-const solop = data.daily.sunrise[0];
-const solopgang = solop.split("T")[1].slice(0, 5);
-console.log(solopgang);
-
-//solnedgangs tidspunkt
-const solned = data.daily.sunset[0];
-const solnedgang = solned.split("T")[1].slice(0, 5);
-console.log(solnedgang);
-
-//Højeste temperatur på dagen
-const maxTemperatur = data.daily.temperature_2m_max[0];
-console.log(maxTemperatur);
-
-//Laveste temperatur på dagen
-const minTemperatur = data.daily.temperature_2m_min[0];
-console.log(minTemperatur);
-
-//Vejr typen lige nu og 5 dage frem - kode nummeret der kommer ud skal kobles sammen med WMO som er beskrevet i wiki
-const vejrTypeIDag = data.hourly.weathercode[0];
-const vejrTypeIMorgen = data.hourly.weathercode[1];
-const vejrTypeOm3Dage = data.hourly.weathercode[2];
-const vejrTypeOm4Dage = data.hourly.weathercode[3];
-const vejrTypeOm5Dage = data.hourly.weathercode[4];
-console.log(vejrTypeIDag);
-console.log(vejrTypeIMorgen);
-console.log(vejrTypeOm3Dage);
-console.log(vejrTypeOm4Dage);
-console.log(vejrTypeOm5Dage);
 
 //Vindhastighed lige nu og 8 timer frem(2 timer int.) og 5 dage frem 
 const vindhastighedNu = data.hourly.windspeed_10m[0];
