@@ -285,6 +285,50 @@ function makeDayaData(data) {
     //console.log(`${timenNu}:${minutNu}`);
     TidNu = `${timenNu}:${minutNu}`
     console.log(TidNu);
+
+    function weatherCodeToText(weatherCode) {
+        let feedbackTekst = "";
+        switch (weatherCode) {
+            case 0:
+                feedbackTekst = "Skyfri";
+                break;
+            case 1:
+                feedbackTekst = "Klart";
+                break;
+            case 2:
+                feedbackTekst = "Skyet";
+                break;
+            case 3:
+                feedbackTekst = "Overskyet";
+                break;
+            case 45:
+                feedbackTekst = "Tåget";
+                break;
+            case 61:
+                feedbackTekst = "Let regn";
+                break;
+            case 63:
+                feedbackTekst = "Regn";
+                break;
+            case 71:
+                feedbackTekst = "Let Snevejr";
+                break;
+            case 73:
+                feedbackTekst = "Snevejr";
+                break;
+            case 95:
+                feedbackTekst = "Tordenvejr";
+                break;
+            default:
+                feedbackTekst = "Unknown";
+        }
+        return feedbackTekst;
+    }
+    
+    // Example usage:
+    let weatherCode = vejrTypeIDag;
+    const weatherText = weatherCodeToText(weatherCode);
+    console.log(weatherText); // Output: "Skyfri"
 }
 
 
