@@ -1,6 +1,46 @@
-
-
 const myApp = document.getElementById('myApp');
+
+// Kode, der kun udføres på en pc-enhed
+if (!(/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+  // DOM-kode til PC
+  console.log("Dette er en pc-enhed");
+  // Start på view kode til PC
+  let mitSted = document.createElement("h2");
+  mitSted.setAttribute("class", "pc-element");
+  mitSted.innerText = mitSted
+  myApp.appendChild(mitSted);
+  
+
+}
+
+// Kode, der kun udføres på en mobil enhed
+if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  // DOM-kode til mobil enhed
+  console.log("Dette er en mobil enhed");
+// Start på view kode til mobil
+  let mitSted = document.createElement("h2");
+  mitSted.setAttribute("class", "mobil-element");
+  mitSted.innerText = mitSted
+  myApp.appendChild(mitSted);
+  
+}
+
+// Kode, der kun udføres på en tablet enhed
+if (/iPad|Android|webOS|BlackBerry|Tablet|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // DOM-kode til tablet enhed
+    console.log("Dette er en tablet enhed");
+    // Start på view kode til tablet 
+    let mitSted = document.createElement("h2");
+    mitSted.setAttribute("class", "tablet-element");
+    mitSted.innerText = mitSted
+    myApp.appendChild(mitSted);
+    
+
+}
+
+
+
+
 
 const geoOptions = {
     enableHighAccuracy: true,
@@ -13,7 +53,7 @@ navigator.geolocation.getCurrentPosition(success, error, geoOptions);
 function success(pos) {
     const crd = pos.coords;
 
-   console.log( `${crd} Your current position is: Latitude : ${crd.latitude} Longitude: ${crd.longitude} More or less ${crd.accuracy} meters.`);
+  // console.log( `${crd} Your current position is: Latitude : ${crd.latitude} Longitude: ${crd.longitude} More or less ${crd.accuracy} meters.`);
     getLocationName(crd.longitude, crd.latitude);
 }
 
@@ -23,8 +63,7 @@ function error(err) {
 
 function getLocationName(myLong, myLat) {
 
-// geo code api https://nominatim  no api key  use this
-console.log(myLong, myLat);
+//console.log(myLong, myLat);
 const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
 
 console.log(apiUrl);
@@ -243,19 +282,3 @@ function makeWeekData(data) {
     const temperaturOm5Dage = data.daily.temperature_2m_max[5];
     console.log(temperaturOm5Dage);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

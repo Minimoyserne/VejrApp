@@ -32,3 +32,6 @@ body {
     background-color: var(---light);
     font-family: inri
 }
+.pc-element {
+    background-color: var(--primary);
+}
