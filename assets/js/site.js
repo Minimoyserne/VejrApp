@@ -1,42 +1,6 @@
 const myApp = document.getElementById('myApp');
 
-// Kode, der kun udføres på en pc-enhed
-if (!(/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-  // DOM-kode til PC
-  console.log("Dette er en pc-enhed");
-  // Start på view kode til PC
-  let mitSted = document.createElement("h2");
-  mitSted.setAttribute("class", "pc-element");
-  mitSted.innerText = mitSted
-  myApp.appendChild(mitSted);
-  
 
-}
-
-// Kode, der kun udføres på en mobil enhed
-if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  // DOM-kode til mobil enhed
-  console.log("Dette er en mobil enhed");
-// Start på view kode til mobil
-  let mitSted = document.createElement("h2");
-  mitSted.setAttribute("class", "mobil-element");
-  mitSted.innerText = mitSted
-  myApp.appendChild(mitSted);
-  
-}
-
-// Kode, der kun udføres på en tablet enhed
-if (/iPad|Android|webOS|BlackBerry|Tablet|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    // DOM-kode til tablet enhed
-    console.log("Dette er en tablet enhed");
-    // Start på view kode til tablet 
-    let mitSted = document.createElement("h2");
-    mitSted.setAttribute("class", "tablet-element");
-    mitSted.innerText = mitSted
-    myApp.appendChild(mitSted);
-    
-
-}
 
 
 
@@ -90,14 +54,14 @@ let fetchOptions={
     .then((data) => {
         //console.log('my fetched data:', data);
         
-        myResElement.innerText = `Du er i  ${data.address.municipality} - ${data.address.postcode} ${data.address.city} `;
+        myResElement.innerText = `${data.address.city}`;
     })
     .catch((error) => {
         console.error('Error:', error);
         myResElement.innerText = `my error: ${error}`;
     });
     
-    //myApp.appendChild(myResElement);
+    myApp.appendChild(myResElement);
 }
 
 
@@ -115,7 +79,7 @@ navigator.geolocation.getCurrentPosition(position => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-    //console.table(data);
+    console.table(data);
     dayData = data;
     weekData = data; 
        
@@ -231,13 +195,13 @@ function makeDayaData(data) {
 }
 
 
-
-
+let vejrTypeIMorgen = "";
+let vejrTypeOm2Dage = "";
 function makeWeekData(data) {
     //Vejr typen 
-    const vejrTypeIMorgen = data.hourly.weathercode[1];
+    vejrTypeIMorgen = data.hourly.weathercode[1];
     console.log(vejrTypeIMorgen);
-    const vejrTypeOm2Dage = data.hourly.weathercode[2];
+    vejrTypeOm2Dage = data.hourly.weathercode[2];
     console.log(vejrTypeOm2Dage);
     const vejrTypeOm3Dage = data.hourly.weathercode[3];
     console.log(vejrTypeOm3Dage);
@@ -282,3 +246,41 @@ function makeWeekData(data) {
     const temperaturOm5Dage = data.daily.temperature_2m_max[5];
     console.log(temperaturOm5Dage);
     }
+
+
+
+    // Kode, der kun udføres på en pc-enhed
+if (!(/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+    // DOM-kode til PC
+    console.log("Dette er en pc-enhed");
+    // Start på view kode til PC
+    let mitSted = document.createElement("h2");
+    mitSted.setAttribute("class", "pc-element");
+    mitSted.innerText = mitSted
+    myApp.appendChild(mitSted);
+  }
+  
+  // Kode, der kun udføres på en mobil enhed
+  if (/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    // DOM-kode til mobil enhed
+    console.log("Dette er en mobil enhed");
+  // Start på view kode til mobil
+    let mitSted = document.createElement("h2");
+    mitSted.setAttribute("class", "mobil-element");
+    mitSted.innerText = mitSted
+    myApp.appendChild(mitSted);
+    
+  }
+  
+  // Kode, der kun udføres på en tablet enhed
+  if (/iPad|Android|webOS|BlackBerry|Tablet|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      // DOM-kode til tablet enhed
+      console.log("Dette er en tablet enhed");
+      // Start på view kode til tablet 
+      let mitSted = document.createElement("h2");
+      mitSted.setAttribute("class", "tablet-element");
+      mitSted.innerText = mitSted
+      myApp.appendChild(mitSted);
+      
+  
+  }
