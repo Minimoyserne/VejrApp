@@ -78,15 +78,13 @@
     let temperaturOm4Dage = "";
     let temperaturOm5Dage = "";
 
-
+//andre variabler fra HTML
 const myApp = document.getElementById('myApp');
 
+let myIcon = document.getElementById("myIcon");
+myIcon.classList.add("fas", "fa-arrow-down");
 
-
-
-
-
-
+//geo lokation indhentning
 const geoOptions = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -126,7 +124,7 @@ let fetchOptions={
     }
     
 };
-// fetch(apiUrl,fetchOptions)
+ fetch(apiUrl,fetchOptions)
 
     fetch(apiUrl)
     .then((response) => response.json())
@@ -136,6 +134,7 @@ let fetchOptions={
         
         mitSted.innerText = `${data.address.village}`;
         console.log(`${data.address.village}`);
+        //Er dette rigtigt? Det virkede med address.city på skolen, men hjemme sulle jeg bruge address.village. Dokumentationene siger address.city ?
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -168,22 +167,22 @@ navigator.geolocation.getCurrentPosition(position => {
        
     makeDayaData(data);
     makeWeekData(data);
-    grader = data.grader; // Antagelse om, at API returnerer grader
-    MinVindretning.style.transform = `rotate(${grader}deg)`;
 
-document.body.appendChild(MinVindretning);
+    //hent grader til vindretning
+    vindretningNu = data.hourly.winddirection_10m[0];
+    console.log(vindretningNu);
 
-myApp.appendChild(MinVindretning);
-MinVindretning.setAttribute("class", "MinVindretning");
-console.log(MinVindretning);
+    grader = data.grader; // API returnerer grader som bruges til at styre retningen på pilen
+    myIcon.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
+    
+
 })
 .catch(error => console.error(error));
 });
 
-let MinVindretning = document.createElement('div');
 
 
-// Tilføj elementet til DOM'en
+
 
 
 function makeDayaData(data) {
@@ -228,15 +227,13 @@ function makeDayaData(data) {
     vindretningNu = data.hourly.winddirection_10m[0];
     console.log(vindretningNu);
     vindretningOm2timer = data.hourly.winddirection_10m[1];
-    console.log(vindretningImorgen);
-    vindretningOm3Dage = data.hourly.winddirection_10m[2];
-    console.log(vindretningOm3Dage);
-    vindretningOm4Dage = data.hourly.winddirection_10m[3];
-    console.log(vindretningOm4Dage);
-    vindretningOm5Dage = data.hourly.winddirection_10m[4];
-    console.log(vindretningOm5Dage);
-
-    const pilElement = document.getElementById
+    console.log(vindretningOm2timer);
+    vindretningOm4Timer = data.hourly.winddirection_10m[2];
+    console.log(vindretningOm4Timer);
+    vindretningOm6Timer = data.hourly.winddirection_10m[3];
+    console.log(vindretningOm6Timer);
+    vindretningOm8Timer = data.hourly.winddirection_10m[4];
+    console.log(vindretningOm8Timer);
 
     
     //Temperaturen lige nu og 8 timer frem(2 timer int.)

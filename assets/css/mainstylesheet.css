@@ -40,11 +40,8 @@ body {
     text-align: center;
 }
 
-.MinVindretning {
-    width: 100px;
-  height: 10px;
-  background-color: black;
-  transform-origin: center;
-  transition: transform 0.3s ease;
-  
+#myIcon {
+    position: absolute;
+  top: 50px;
 }
+
