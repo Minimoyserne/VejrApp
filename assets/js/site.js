@@ -1,4 +1,3 @@
-    
 // Tomme variabler til data om vejret
 
         //Day data
@@ -99,7 +98,6 @@ navigator.geolocation.getCurrentPosition(success, error, geoOptions);
 function success(pos) {
     const crd = pos.coords;
 
-  // console.log( `${crd} Your current position is: Latitude : ${crd.latitude} Longitude: ${crd.longitude} More or less ${crd.accuracy} meters.`);
     getLocationName(crd.longitude, crd.latitude);
 }
 
@@ -114,7 +112,7 @@ const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${m
 
 console.log(apiUrl);
 
-let myResElement = document.createElement('h2');
+let mitSted = document.createElement('h2');
 
 let fetchOptions={
     
@@ -136,17 +134,19 @@ let fetchOptions={
     .then((data) => {
         //console.log('my fetched data:', data);
         
-        myResElement.innerText = `${data.address.city}`;
+        mitSted.innerText = `${data.address.city}`;
     })
     .catch((error) => {
         console.error('Error:', error);
-        myResElement.innerText = `my error: ${error}`;
+        mitSted.innerText = `my error: ${error}`;
     });
     
-    myApp.appendChild(myResElement);
+    myApp.appendChild(mitSted);
+    mitSted.setAttribute("class", "mitsted");
+
 }
 
-
+let grader = "";
 // Get the user's current location
 navigator.geolocation.getCurrentPosition(position => {
     const { latitude, longitude } = position.coords;
@@ -167,18 +167,26 @@ navigator.geolocation.getCurrentPosition(position => {
        
     makeDayaData(data);
     makeWeekData(data);
-   
+    grader = data.grader; // Antagelse om, at API returnerer grader
+    MinVindretning.style.transform = `rotate(${grader}deg)`;
 
+document.body.appendChild(MinVindretning);
+
+myApp.appendChild(MinVindretning);
+MinVindretning.setAttribute("class", "MinVindretning");
+console.log(MinVindretning);
 })
 .catch(error => console.error(error));
 });
 
-    
+let MinVindretning = document.createElement('div');
+
+
+// Tilføj elementet til DOM'en
 
 
 function makeDayaData(data) {
     //solopgangs tidspunkt
-    
     solop = data.daily.sunrise[0];
     solopgang = solop.split("T")[1].slice(0, 5);
     console.log(solopgang);
@@ -226,6 +234,8 @@ function makeDayaData(data) {
     console.log(vindretningOm4Dage);
     vindretningOm5Dage = data.hourly.winddirection_10m[4];
     console.log(vindretningOm5Dage);
+
+    const pilElement = document.getElementById
 
     
     //Temperaturen lige nu og 8 timer frem(2 timer int.)
@@ -375,7 +385,7 @@ function makeWeekData(data) {
 
     //Max temperaturen 5 dage frem
     temperaturIMorgen = data.daily.temperature_2m_max[1];
-    console.log(temperaturIMorgen);
+    console.log(temperaturIMorgen); 
     temperaturOm2Dage = data.daily.temperature_2m_max[2];
     console.log(temperaturOm2Dage);
     temperaturOm3Dage = data.daily.temperature_2m_max[3];
