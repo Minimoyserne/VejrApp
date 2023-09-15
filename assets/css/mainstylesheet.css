@@ -43,8 +43,8 @@ body {
 .MinVindretning {
     width: 100px;
   height: 10px;
-  background-color: red;
-  color: black;
+  background-color: black;
   transform-origin: center;
   transition: transform 0.3s ease;
+  
 }

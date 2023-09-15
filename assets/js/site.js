@@ -134,7 +134,8 @@ let fetchOptions={
     .then((data) => {
         //console.log('my fetched data:', data);
         
-        mitSted.innerText = `${data.address.city}`;
+        mitSted.innerText = `${data.address.village}`;
+        console.log(`${data.address.village}`);
     })
     .catch((error) => {
         console.error('Error:', error);
