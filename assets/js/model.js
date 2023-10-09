@@ -18,7 +18,7 @@ function error(err) {
     // myApp.innerText = `ERROR(${err.code}): ${err.message}`;
 }
 
-function GeoData(myLong, myLat) {
+export function GeoData(myLong, myLat) {
 
     //console.log(myLong, myLat);
     const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
@@ -58,9 +58,9 @@ function GeoData(myLong, myLat) {
     
     // myApp.appendChild(mitSted);
     // mitSted.setAttribute("class", "mitsted");
-}
+    }
 
-    //let grader = "";
+  
     // Get the user's current location
     navigator.geolocation.getCurrentPosition(position => {
     const { latitude, longitude } = position.coords;
@@ -76,20 +76,21 @@ function GeoData(myLong, myLat) {
       .then((response) => response.json())
       .then((data) => {
      console.log(data);
-    // dayData = data;
+   dayData = data;
     // weekData = data; 
        
-    // makeDayaData(data);
-    // makeWeekData(data);
+    makeDayData(data);
+    //makeWeekData(data);
 
     //hent grader til vindretning
     // vindretningNu = data.hourly.winddirection_10m[0];
     // console.log(vindretningNu);
 
+  //let grader = "";
     // grader = data.grader; // API returnerer grader som bruges til at styre retningen på pilen
     // myIcon.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
     
 
-})
+    })
     .catch(error => console.error(error));
 });
