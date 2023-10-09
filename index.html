@@ -6,14 +6,17 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/mainstylesheet.css">
     <!-- Java -->
-    <script src="./assets/js/model.js" defer></script>
-	<script src="https://kit.fontawesome.com/11e7a87280.js" crossorigin="anonymous"></script>
+    <script type="module" src="./assets/js/model.js"></script>
+    <script type="module" src="./assets/js/view.js"></script>
+
+    <script src="https://kit.fontawesome.com/11e7a87280.js" crossorigin="anonymous"></script>
 
     <title>Weather app</title>    <!-- Ændre titel -->
 
 </head>
 <body>
-    <main id="myApp">  
+    <main id="myApp">
+        <div class="loader"></div>  
         <i id="myIcon"></i>   
     </main>
 
