@@ -158,6 +158,7 @@ navigator.geolocation.getCurrentPosition(position => {
 
 
 
+
 function makeDayaData(data) {
     //solopgangs tidspunkt
     solop = data.daily.sunrise[0];
