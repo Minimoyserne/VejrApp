@@ -78,14 +78,14 @@ function error(err) {
 
 function GeoData(myLong, myLat) {
 
-//console.log(myLong, myLat);
-const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
+    //console.log(myLong, myLat);
+    const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
 
-console.log(apiUrl);
+    console.log(apiUrl);
 
-let mitSted = document.createElement('h2');
+    let mitSted = document.createElement('h2');
 
-let fetchOptions={
+    let fetchOptions={
     
     Method: 'GET',
     Body: 'body',
@@ -96,8 +96,9 @@ let fetchOptions={
         'Content-Type': 'application/json'
     }
     
-};
- fetch(apiUrl,fetchOptions)
+    };
+
+    fetch(apiUrl,fetchOptions)
 
     fetch(apiUrl)
     .then((response) => response.json())
@@ -116,12 +117,11 @@ let fetchOptions={
     
     myApp.appendChild(mitSted);
     mitSted.setAttribute("class", "mitsted");
-
 }
 
-let grader = "";
-// Get the user's current location
-navigator.geolocation.getCurrentPosition(position => {
+    let grader = "";
+    // Get the user's current location
+    navigator.geolocation.getCurrentPosition(position => {
     const { latitude, longitude } = position.coords;
     
     // Construct the URL for the weather API
@@ -150,7 +150,7 @@ navigator.geolocation.getCurrentPosition(position => {
     
 
 })
-.catch(error => console.error(error));
+    .catch(error => console.error(error));
 });
 
 
@@ -180,9 +180,7 @@ function makeDayaData(data) {
     //Vejr typen 
     vejrTypeIDag = data.hourly.weathercode[0];
     console.log(vejrTypeIDag);
-
-    
-
+  
     //Vindhastighed lige nu og 8 timer frem(2 timer int.) 
     vindhastighedNu = data.hourly.windspeed_10m[0];
     console.log(vindhastighedNu);

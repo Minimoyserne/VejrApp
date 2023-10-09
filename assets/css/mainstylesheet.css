@@ -4,6 +4,7 @@
 
 /* css link */
 @import url(./nav-stylesheet.css);
+@import url(./loader.css);
 /* Global style */
 * {
     margin: 0;
