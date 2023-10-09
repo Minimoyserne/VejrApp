@@ -27,3 +27,9 @@ function GeoData(myLat, myLong) {
         });
     }
 
+<<<<<<< Updated upstream
+=======
+function initApp(){
+   
+}
+>>>>>>> Stashed changes
