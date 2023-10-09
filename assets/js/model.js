@@ -15,17 +15,16 @@ function success(pos) {
 
 function error(err) {
     console.log(err);
-    // myApp.innerText = `ERROR(${err.code}): ${err.message}`;
 }
 
 export function GeoData(myLong, myLat) {
 
-    //console.log(myLong, myLat);
+   
     const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
 
     console.log(apiUrl);
 
-    // let mitSted = document.createElement('h2');
+   
 
     let fetchOptions={
     
@@ -43,21 +42,18 @@ export function GeoData(myLong, myLat) {
     fetch(apiUrl,fetchOptions)
 
     fetch(apiUrl)
+
     .then((response) => response.json())
     
     .then((data) => {
         console.log('my fetched data:', data);
-        
-        // mitSted.innerText = `${data.address.village || data.address.city}`;
-        // console.log(`${data.address.village}`);
+        return data;
     })
     .catch((error) => {
         console.error('Error:', error);
-        // mitSted.innerText = `my error: ${error}`;
+        
     });
     
-    // myApp.appendChild(mitSted);
-    // mitSted.setAttribute("class", "mitsted");
     }
 
   
@@ -76,19 +72,9 @@ export function GeoData(myLong, myLat) {
       .then((response) => response.json())
       .then((data) => {
      console.log(data);
-   dayData = data;
-    // weekData = data; 
+    
        
-    makeDayData(data);
-    //makeWeekData(data);
 
-    //hent grader til vindretning
-    // vindretningNu = data.hourly.winddirection_10m[0];
-    // console.log(vindretningNu);
-
-  //let grader = "";
-    // grader = data.grader; // API returnerer grader som bruges til at styre retningen på pilen
-    // myIcon.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
     
 
     })

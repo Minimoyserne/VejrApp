@@ -1,11 +1,15 @@
 // import functions her
-import {GeoData} from './assets/js/model.js';
+import {GeoData} from './model.js';
 
+function initApp(){
+
+}
 
 let solned = "";
 let solop = "";
 GeoData();
-makeDayData(data);
+makeDayData();
+
 function makeDayData(data){
  //solopgangs tidspunkt
  solop = data.daily.sunrise[0];
