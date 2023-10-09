@@ -132,7 +132,7 @@ let fetchOptions={
     .then((data) => {
         //console.log('my fetched data:', data);
         
-        mitSted.innerText = `${data.address.village}`;
+        mitSted.innerText = `${data.address.village || data.address.city}`;
         console.log(`${data.address.village}`);
         //Er dette rigtigt? Det virkede med address.city på skolen, men hjemme sulle jeg bruge address.village. Dokumentationene siger address.city ?
     })
@@ -401,10 +401,10 @@ if (!(/iPhone|iPad|iPod|Android|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navi
     // DOM-kode til PC
     console.log("Dette er en pc-enhed");
     // Start på view kode til PC
-    let mitSted = document.createElement("h2");
-    mitSted.setAttribute("class", "pc-element");
-    mitSted.innerText = mitSted
-    myApp.appendChild(mitSted);
+  //  let mitSted = document.createElement("h2");
+  //  mitSted.setAttribute("class", "pc-element");
+  //  mitSted.innerText = mitSted
+   // myApp.appendChild(mitSted);
   }
   
   // Kode, der kun udføres på en mobil enhed
