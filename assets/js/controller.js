@@ -8,7 +8,10 @@ function initApp(){
 let solned = "";
 let solop = "";
 GeoData();
+<<<<<<< Updated upstream
 makeDayData();
+=======
+>>>>>>> Stashed changes
 
 function makeDayData(data){
  //solopgangs tidspunkt

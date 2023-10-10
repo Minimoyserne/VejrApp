@@ -1,3 +1,5 @@
+
+
 //geo lokation indhentning
 const geoOptions = {
     enableHighAccuracy: true,
