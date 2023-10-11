@@ -51,3 +51,10 @@ console.log(apiUrl);
  //console.log({result});
 
 }
+
+
+
+    //solopgangs tidspunkt
+    // solop = data.daily.sunrise[0];
+    // solopgang = solop.split("T")[1].slice(0, 5);
+    // console.log(solopgang);
