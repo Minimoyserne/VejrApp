@@ -1,11 +1,20 @@
 //gloabl
 const myApp = document.getElementById('myApp');
 
-function BuildLoadingScreen() {
+export function BuildLoadingScreen() {
 
-            const loader = document.querySelector(".loader");
-            loader.classList.add("loader-hidden");
-            loader.addEventListener("transitionend", () => {
+    const loader = document.querySelector(".loader");
+    if (loader) {
+        loader.classList.add("loader-hidden");
+        loader.addEventListener("transitionend", () => {
+            if (document.body.contains(loader)) {
                 document.body.removeChild(loader);
-     });
+                console.log("Loader removed successfully.");
+            } else {
+                console.log("Loader element does not exist in the DOM.");
+            }
+        });
+    } else {
+        console.log("Loader element not found.");
+    }
 }
