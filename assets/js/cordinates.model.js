@@ -22,8 +22,11 @@ export const getCurrentPosition = async () => {
 }
 
 
-export const getCoordinates = async (myLat, myLong) => {
-   console.log(myLat, myLong);
+export const getCoordinates = async (myLong, myLat ) => {
+   console.log(myLong, myLat);
+
+
+
     const apiUrl = `https://nominatim.openstreetmap.org/reverse?lat=${myLat}&lon=${myLong}&format=json`;
 console.log(apiUrl);
     const response = await fetch(apiUrl)
