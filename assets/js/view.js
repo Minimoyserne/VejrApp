@@ -1,4 +1,8 @@
-//gloabl
+import { dayData, solop } from "./weatherdata.controller.js";
+
+console.log(dayData);
+console.log(solop);
+
 const myApp = document.getElementById('myApp');
 
 export function BuildLoadingScreen() {
