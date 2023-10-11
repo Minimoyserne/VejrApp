@@ -6,23 +6,39 @@ export const getCurrentPosition = async () => {
         maximumAge: 0
     };
 
-    navigator.geolocation.getCurrentPosition(success, error, geoOptions);
 
-    
-    function success(pos) {
-        const crd = pos.coords;
-        // console.log(crd);
-        getCoordinates(crd.longitude, crd.latitude);
-    }
-    
-    function error(error) {
-        console.error(error);
-    }
 
+    return new Promise((resolve, reject) => {
+        return navigator.geolocation.getCurrentPosition(
+            pos => {
+                resolve({
+                longitude: pos.coords.longitude,
+                latitude: pos.coords.latitude
+            })
+            },
+        () => { 
+            reject('curPos Error')
+        },
+        geoOptions)
+    })
 }
 
+    
 
-export const getCoordinates = async (myLong, myLat ) => {
+    
+//     function success(pos) {
+//         const crd = pos.coords;
+//         // console.log(crd);
+//        return getCoordinates(crd.longitude, crd.latitude);
+//     }
+    
+//     function error(error) {
+//         console.error(error);
+//     }
+// }
+
+
+export const getCoordinates = async (myLong, myLat) => {
    console.log(myLong, myLat);
 
 
@@ -31,6 +47,7 @@ export const getCoordinates = async (myLong, myLat ) => {
 console.log(apiUrl);
     const response = await fetch(apiUrl)
     const result = await response.json();
-//    return result
- console.log({result});
+    return result
+ //console.log({result});
+
 }
