@@ -33,10 +33,9 @@ export function DataConversion(data){
         const sunset = document.querySelector(".sol-ned");
         sunset.innerHTML = data.daily.sunset[0].split("T")[1].slice(0, 5);
 
-        const minTemp = document.querySelector(".min-temp");
-        minTemp.innerHTML = `H: ${data.daily.temperature_2m_min[0] + data.daily_units.temperature_2m_min}`;
-        const maxTemp = document.querySelector(".max-temp");
-        maxTemp.innerHTML = `L: ${data.daily.temperature_2m_max[0] + data.daily_units.temperature_2m_max}`;
+        const Temp = document.querySelector(".temp");
+        Temp.innerHTML = `H: ${data.daily.temperature_2m_min[0] + data.daily_units.temperature_2m_min} L: ${data.daily.temperature_2m_max[0] + data.daily_units.temperature_2m_max}`;
+
 
 
     }else if (bredde <= 1024) {

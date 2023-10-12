@@ -33,14 +33,34 @@ export function BuildMobilView() {
                     <p class="sol-op"></p>
                     <p class="sol-ned"></p>
                 </article>
-                <article>
-                    <p class="min-temp"></p>
-                    <p class="max-temp"></p>
+                <article">
+                    <p class="temp"></p>
                 </article>
             </article>
         </header>
-    
+        <main>
+            <article>
+                <h2 class"position"></h2>
+                <p class"vejrtype"></p>
+            </article>
+
+            <article class="hjul">
+                <div>
+                    <img src="assets/image/vindpust.png" alt="">
+                    <p class"vindhastighed"></p>
+                </div>
+                <div>
+                    <h2 class"grader"></h2>
+                    <p class"tid"></p>
+                </div>
+            </article>
+            <article class"vindretning">
+                <div>bruges til vindretningspil</div>
+            </article>
+
+        </main>
     </section>
+    
     `;
 
     const section = myApp.querySelector('section');

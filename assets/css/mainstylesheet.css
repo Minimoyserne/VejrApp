@@ -44,29 +44,46 @@ body {
   top: 50px;
 }
 
-#myApp {
-    background-image: '../image/let-skyet.jpg ';
-    width: 100vw;
+#myApp{
+    /* background-image: '../assets/image/let-skyet.jpg'; */
+    /* width: 100%; */
+    /* width: 100vw;
     height: 100vh;
     background-position: center center;
     Background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 /* background-color: red; */
 }
 
 .mobilview header {
+    margin: 10px;
     display: flex;
+
 }
 .header-containter {
     display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 
 }
 
 .mobilview header article {
-    display: inline-block;
-    justify-content: space-evenly;
-    padding-left: 7px;
-    /* margin-right: 60px; */
-background-color: #14A44D;
+    padding: 0 10px 0 7px;
+}
+
+.mobilview .hjul {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D5E5F2;
+    border-radius: 50%;
+    border: solid 15px #143259;
 }
