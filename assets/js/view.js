@@ -45,18 +45,19 @@ export function BuildMobilView() {
             </article>
 
             <article class="hjul">
-                <div>
+                <div class="top-hjul">
                     <img src="assets/image/vindpust.png" alt="">
-                    <p class"vindhastighed"></p>
+                    <p class="vindhastighed"></p>
                 </div>
-                <div>
-                    <h2 class"grader"></h2>
-                    <p class"tid"></p>
+                <div class="temperatur">
+                    <h2 class="grader"></h2>
+                    <p class="tid"></p>
                 </div>
+                <article class="vindretning">
+                    <div>bruges til vindretningspil</div>
+                </article>
             </article>
-            <article class"vindretning">
-                <div>bruges til vindretningspil</div>
-            </article>
+           
 
         </main>
     </section>
