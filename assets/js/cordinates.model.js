@@ -25,17 +25,6 @@ export const getCurrentPosition = async () => {
 
     
 
-    
-//     function success(pos) {
-//         const crd = pos.coords;
-//         // console.log(crd);
-//        return getCoordinates(crd.longitude, crd.latitude);
-//     }
-    
-//     function error(error) {
-//         console.error(error);
-//     }
-// }
 
 
 export const getCoordinates = async (myLong, myLat) => {
@@ -48,13 +37,9 @@ console.log(apiUrl);
     const response = await fetch(apiUrl)
     const result = await response.json();
     return result
- //console.log({result});
 
 }
 
 
 
-    //solopgangs tidspunkt
-    // solop = data.daily.sunrise[0];
-    // solopgang = solop.split("T")[1].slice(0, 5);
-    // console.log(solopgang);
+

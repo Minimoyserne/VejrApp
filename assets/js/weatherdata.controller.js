@@ -1,4 +1,4 @@
-import { getCurrentPosition } from "./cordinates.model.js";
+import { getCurrentPosition, getCoordinates } from "./cordinates.model.js";
 import { BuildMobilView, BuildTabletView, BuildPcView } from "./view.js";
 import { getWeatherData } from "./weatherdata.model.js";
 
@@ -12,6 +12,10 @@ import { getWeatherData } from "./weatherdata.model.js";
     const weatherData = await getWeatherData(curPos.latitude, curPos.longitude)
 
     DataConversion(weatherData);
+
+        const coords = await getCurrentPosition();
+        console.log(await getCoordinates(coords.longitude, coords.latitude));
+    
     
 })()
 
@@ -35,13 +39,6 @@ export function DataConversion(data){
         sunset.innerHTML = data.daily.sunset[0].split("T")[1].slice(0, 5);
 
         const Temp = document.querySelector(".temp");
-        Temp.innerHTML = `H: ${data.daily.temperature_2m_min[0] + spacer + data.daily_units.temperature_2m_min} L: ${data.daily.temperature_2m_max[0] + spacer + data.daily_units.temperature_2m_max}`;
-
-        const vindSpeed = document.querySelector(".vindhastighed");
-        vindSpeed.innerHTML = data.current.windspeed_10m + spacer + data.current_units.windspeed_10m;
-        const temperatur = document.querySelector(".grader");
-        temperatur.innerHTML = parseInt(data.current.temperature_2m) + data.current_units.winddirection_10m;
-
     }else if (bredde <= 1024) {
     //(/iPad|Android|webOS|BlackBerry|Tablet|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     // DOM-kode til tablet enhed
