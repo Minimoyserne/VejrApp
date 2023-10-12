@@ -25,7 +25,7 @@ export function BuildMobilView() {
     myApp.innerHTML = `
     <section>
         <header>
-            <img src="assets/image/sol-op-ned.png" alt="">
+            <img src="assets/image/sol-op-ned(hvid).png" alt="">
                 <article class="header-containter">
                 <article>
                     <p class="sol-op"></p>

@@ -35,6 +35,7 @@ body {
     height: 100vh;
     background-repeat: no-repeat;
     position: relative;
+    z-index: -1;
 }
 /* .pc-element {
     background-color: var(--primary);
