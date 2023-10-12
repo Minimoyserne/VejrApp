@@ -1,0 +1,104 @@
+#menu_icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
+    bottom: 1.5%;
+    left: 50%;
+    transform: translatex(-50%);
+    z-index: 3;
+}
+
+#menu_icon span{
+    display: block;
+    width: 35px;
+    height: 3px;
+    background-color: #3F83BF;
+    margin: 3px;
+    transition: 300ms;
+}
+
+#bgl-1.rotate {
+    transform: rotate(45deg);
+    translate: 0 9px;
+    transition: 300ms;
+}
+
+#bgl-2.hidden {
+    opacity: 0;
+    transition: 300ms;
+}
+
+#bgl-3.rotate {
+    transform: rotate(-45deg);
+    translate: 0 -9px;
+    transition: 300ms;
+}
+
+#menu_items {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: none;
+    z-index: -1;
+    padding-bottom: 50px;
+    overflow: hidden;
+}
+
+#menu_items ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu_items ul button {
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    width: 55%;
+    margin-top: 1em;
+    border-radius: 50px;
+    border: none;
+    padding: 15px;
+    background-color: #3F83BF;
+}
+
+#menu_items ul button a {
+    text-decoration: none;
+    color: white;
+}
+
+#menu_items.active {
+    display: block;
+    background-color: #B6D6F2;
+    animation: movein 1.2s forwards ease-in-out;
+    z-index: 2;
+}
+
+@keyframes movein {
+    from{
+        margin-bottom: -200px;
+    }
+    to {
+        margin-bottom: 0px;
+    }
+}
+
+#menu_items ul li {
+    list-style: none;
+}
+
+#menu_items ul li a {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    #menu_icon {
+        display: flex;
+    }
+}

@@ -56,10 +56,31 @@ export function BuildMobilView() {
                 </article>
             </article>
         </main>
+        <div id="menu_icon">
+        <span id="bgl-1"></span>
+        <span id="bgl-2"></span>
+        <span id="bgl-3"></span>
+      </div>
+      <div id="menu_items">
+          <ul>
+              <button><a href="#">Anden lokalitet</a></button>
+              <button><a href="#">Vejret de kommdende dage</a></button>
+              <button><a href="#">Vind hastigheder</a></button>
+          </ul>
+      </div>
     </section>
     
     `;
-
+    const menuIcon = document.getElementById('menu_icon');
+    menuIcon.addEventListener('click', () => {
+      document.getElementById('menu_items').classList.toggle('active');
+      document.getElementById('bgl-1').classList.toggle('rotate');
+      document.getElementById('bgl-2').classList.toggle('hidden');
+      document.getElementById('bgl-3').classList.toggle('rotate');
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        createMenu();
+      });
     const section = myApp.querySelector('section');
     section.classList.add('mobilview');
 };
