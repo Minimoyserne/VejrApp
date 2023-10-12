@@ -1,7 +1,5 @@
-import { DataConversion } from "./weatherdata.controller.js";
+// import { DataConversion } from "./weatherdata.controller.js";
 
-console.log(DataConversion);
-// console.log(solop);
 
 const myApp = document.getElementById('myApp');
 
@@ -40,8 +38,8 @@ export function BuildMobilView() {
         </header>
         <main>
             <article>
-                <h2 class"position"></h2>
-                <p class"vejrtype"></p>
+                <h2 class="sted"></h2>
+                <p class="vejrtype"></p>
             </article>
 
             <article class="hjul">
@@ -57,8 +55,6 @@ export function BuildMobilView() {
                     <div>bruges til vindretningspil</div>
                 </article>
             </article>
-           
-
         </main>
     </section>
     
