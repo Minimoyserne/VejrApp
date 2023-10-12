@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
 
 /* css link */
-@import url(./nav-stylesheet.css);
 @import url(./loader.css);
 /* Global style */
 * {
@@ -31,11 +30,10 @@
 body {
     /* ÆNDRE */
     background-color: var(---light);
-    font-family: inri
 }
-.pc-element {
+/* .pc-element {
     background-color: var(--primary);
-}
+} */
 
 .mitsted {
     text-align: center;
@@ -46,3 +44,29 @@ body {
   top: 50px;
 }
 
+#myApp {
+    background-image: '../image/let-skyet.jpg ';
+    width: 100vw;
+    height: 100vh;
+    background-position: center center;
+    Background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+/* background-color: red; */
+}
+
+.mobilview header {
+    display: flex;
+}
+.header-containter {
+    display: flex;
+
+}
+
+.mobilview header article {
+    display: inline-block;
+    justify-content: space-evenly;
+    padding-left: 7px;
+    /* margin-right: 60px; */
+background-color: #14A44D;
+}

@@ -26,6 +26,7 @@ export const getWeatherData = async (latitude, longitude) => {
     const result = await response.json();
     return result
     
+    
 }
 
 console.log({result});

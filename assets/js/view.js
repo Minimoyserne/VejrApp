@@ -1,7 +1,7 @@
-import { dayData, solop } from "./weatherdata.controller.js";
+import { DataConversion } from "./weatherdata.controller.js";
 
-console.log(dayData);
-console.log(solop);
+console.log(DataConversion);
+// console.log(solop);
 
 const myApp = document.getElementById('myApp');
 
@@ -22,3 +22,49 @@ export function BuildLoadingScreen() {
         console.log("Loader element not found.");
     }
 }
+
+export function BuildMobilView() {
+    myApp.innerHTML = `
+    <section>
+        <header>
+            <img src="assets/image/sol-op-ned.png" alt="">
+                <article class="header-containter">
+                <article>
+                    <p class="sol-op"></p>
+                    <p class="sol-ned"></p>
+                </article>
+                <article>
+                    <p class="min-temp"></p>
+                    <p class="max-temp"></p>
+                </article>
+            </article>
+        </header>
+    
+    </section>
+    `;
+
+    const section = myApp.querySelector('section');
+    section.classList.add('mobilview');
+};
+
+
+
+
+
+
+
+
+
+export function BuildTabletView() {
+    myApp.innerHTML = `<section><h2>Hej fra Tablet</h2></section>`;
+
+    const section = myApp.querySelector('section');
+    section.classList.add('tabletview');
+};
+
+export function BuildPcView() {
+ myApp.innerHTML = `<section><h2>Hej fra PC</h2></section>`;
+
+    const section = myApp.querySelector('section');
+    section.classList.add('pcview');
+};
