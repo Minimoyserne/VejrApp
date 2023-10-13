@@ -41,20 +41,20 @@ export function BuildMobilView() {
                 <h2 class="sted"></h2>
                 <p class="vejrtype"></p>
             </article>
-
-            <article class="hjul">
-                <div class="top-hjul">
-                    <img src="assets/image/vindpust.png" alt="">
-                    <p class="vindhastighed"></p>
-                </div>
-                <div class="temperatur">
-                    <h2 class="grader"></h2>
-                    <p class="tid"></p>
-                </div>
-                <i id="myIcon"></i>
-                </article>
-            </article>
             
+                <article class="hjul">
+                    <div class="top-hjul">
+                        <img src="assets/image/vindpust.png" alt="">
+                        <p class="vindhastighed"></p>
+                    </div>
+                    <div class="temperatur">
+                        <h2 class="grader"></h2>
+                        <p class="tid"></p>
+                    </div>
+                    <i id="myIcon"></i>
+                    </article>
+                </article>
+ 
         </main>
         <div id="menu_icon">
         <span id="bgl-1"></span>

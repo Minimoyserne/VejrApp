@@ -39,11 +39,12 @@ body {
     position: relative;
     z-index: -1;
 }
-
-/* body::-webkit-scrollbar {
+body::-webkit-scrollbar {
     display: none;
+}
+/* .pc-element {
+    background-color: var(--primary);
 } */
-
 
 .sted {
     text-align: center;
