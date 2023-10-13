@@ -39,7 +39,7 @@ export function DataConversion(data, myPlace){
         sunset.innerHTML = data.daily.sunset[0].split("T")[1].slice(0, 5);
 
         const Temp = document.querySelector(".temp");
-        Temp.innerHTML = `H: ${data.daily.temperature_2m_min[0] + spacer + data.daily_units.temperature_2m_min} L: ${data.daily.temperature_2m_max[0] + spacer + data.daily_units.temperature_2m_max}`;
+        Temp.innerHTML = `H: ${data.daily.temperature_2m_max[0] + spacer + data.daily_units.temperature_2m_max} L: ${data.daily.temperature_2m_min[0] + spacer + data.daily_units.temperature_2m_min}`;
         
         const placering = document.querySelector(".sted");
         placering.innerHTML = myPlace.city
@@ -50,7 +50,16 @@ export function DataConversion(data, myPlace){
         const temperatur = document.querySelector(".grader");
         temperatur.innerHTML = parseInt(data.current.temperature_2m) + data.current_units.winddirection_10m;
 
-    }else if (bredde <= 1024) {
+
+        let vindpil = document.querySelector("#myIcon");
+        vindpil.classList.add("fas", "fa-circle-arrow-down");
+        let vindretningNu = data.hourly.winddirection_10m[0];
+        console.log(vindretningNu);
+        console.log(vindpil);
+        vindpil.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
+
+        
+    } else if (bredde <= 1024) {
     // DOM-kode til tablet enhed
     console.log("Dette er en tablet enhed");
 

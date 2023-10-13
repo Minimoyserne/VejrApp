@@ -26,7 +26,7 @@ export function BuildMobilView() {
     <section>
         <header>
             <img src="assets/image/sol-op-ned(hvid).png" alt="">
-                <article class="header-containter">
+            <article class="header-containter">
                 <article>
                     <p class="sol-op"></p>
                     <p class="sol-ned"></p>
@@ -51,15 +51,13 @@ export function BuildMobilView() {
                     <h2 class="grader"></h2>
                     <p class="tid"></p>
                 </div>
-                <article class="vindretning">
-                    <div>bruges til vindretningspil</div>
-                </article>
+                <i id="myIcon"></i>
             </article>
         </main>
         <div id="menu_icon">
-        <span id="bgl-1"></span>
-        <span id="bgl-2"></span>
-        <span id="bgl-3"></span>
+            <span id="bgl-1"></span>
+            <span id="bgl-2"></span>
+            <span id="bgl-3"></span>
       </div>
       <div id="menu_items">
           <ul>

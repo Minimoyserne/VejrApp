@@ -53,19 +53,6 @@ body {
     top: 50px;
 }
 
-#myApp{
-    /* background-image: '../assets/image/let-skyet.jpg'; */
-    /* width: 100%; */
-    /* width: 100vw;
-    height: 100vh;
-    background-position: center center;
-    Background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; */
-/* background-color: red; */
-}
-
-
 .mobilview header {
     margin: 10px;
     display: flex;
@@ -98,7 +85,7 @@ body {
     align-items: center;
     background-color: #D5E5F2;
     border-radius: 50%;
-    border: solid 15px #143259;
+    border: solid 20px #143259;
 }
 
 .top-hjul {
@@ -123,4 +110,21 @@ body {
 }
 .temperatur {
     justify-content: center;
+}
+.grader {
+    font-size: 67px;
+}
+
+#myIcon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 50%;
+    width: 59px;
+    height: 59px;
+    color: #143259;
+    z-index: 999;
+    font-size: 60px;
+
 }
