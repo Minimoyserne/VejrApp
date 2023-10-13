@@ -51,8 +51,7 @@ export function BuildMobilView() {
                     <h2 class="grader"></h2>
                     <p class="tid"></p>
                 </div>
-                <article class="vindretning">
-                    <div>bruges til vindretningspil</div>
+                <i id="myIcon"></i>
                 </article>
             </article>
             
