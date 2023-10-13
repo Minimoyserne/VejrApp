@@ -53,6 +53,7 @@ export function BuildMobilView() {
                 </div>
                 <i id="myIcon"></i>
             </article>
+            
         </main>
         <div id="menu_icon">
             <span id="bgl-1"></span>

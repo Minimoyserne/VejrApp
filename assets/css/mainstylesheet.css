@@ -1,6 +1,7 @@
 /* font */
 /* ÆNDRE */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap');
 
 
 /* css link */
@@ -46,7 +47,7 @@ body {
     text-align: center;
     color: white;
     font-size: 3em;
-    margin-top: 60px;
+    margin-top: 50px;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -76,6 +77,12 @@ body {
 .sol-op, .sol-ned, .temp {
     font-size: 15px;
     font-weight: 100;
+    font-family: 'Noto Sans', sans-serif;
+}
+.vejrtype {
+    color: white;
+    text-align: center;
+    font-family: 'Noto Sans', sans-serif;
 }
 .hjul {
     position: fixed;
@@ -111,10 +118,10 @@ body {
 }
 .temperatur {
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
 }
 .grader {
     font-size: 67px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .tid {
