@@ -1,6 +1,3 @@
-// import { DataConversion } from "./weatherdata.controller.js";
-
-
 const myApp = document.getElementById('myApp');
 
 export function BuildLoadingScreen() {

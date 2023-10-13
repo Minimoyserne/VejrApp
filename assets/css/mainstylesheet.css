@@ -18,16 +18,8 @@
 
     /* INDTAST FARVER */
 
-
-    --primary: #3B71CA;
-    --secondary: #9FA6B2;
-    --danger: #DC4C64;
-    --warning: #E4A11B;
-    --info: #54B4D3;
-    --light: #FBFBFB;
-    --dark: #332D2D;
-    --error: #ff2222;
-    --success: #14A44D;
+    --fontprimary: white;
+    --wheelbordder: #143259;
 }
 
 body {
@@ -42,13 +34,10 @@ body {
 body::-webkit-scrollbar {
     display: none;
 }
-/* .pc-element {
-    background-color: var(--primary);
-} */
 
 .sted {
     text-align: center;
-    color: white;
+    color: var(--fontprimary);
     font-size: 3em;
     margin-top: 60px;
     font-family: 'Roboto', sans-serif;
@@ -69,7 +58,7 @@ body::-webkit-scrollbar {
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    color: white;
+    color: var(--fontprimary);
 
 }
 
@@ -83,7 +72,7 @@ body::-webkit-scrollbar {
     font-family: 'Noto Sans', sans-serif;
 }
 .vejrtype {
-    color: white;
+    color: var(--fontprimary);
     text-align: center;
     font-size: 18px;
     font-family: 'Noto Sans', sans-serif;
@@ -101,7 +90,7 @@ body::-webkit-scrollbar {
     align-items: center;
     background-color: #D5E5F2;
     border-radius: 50%;
-    border: solid 18px #143259;
+    border: solid 18px var(--wheelbordder);
 }
 
 .top-hjul {
@@ -134,9 +123,7 @@ body::-webkit-scrollbar {
     left: 50%;
     transform: translatex(-50%);
     text-align: center;
-    /* margin-top: 30px; */
     font-size: 20px;
-    /* background-color: #14A44D; */
     font-family: 'Roboto', sans-serif;
 
 }
@@ -144,11 +131,11 @@ body::-webkit-scrollbar {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: white;
+    background-color: var(--fontprimary);
     border-radius: 50%;
     width: 59px;
     height: 59px;
-    color: #143259;
+    color: var(--wheelbordder);
     z-index: 999;
     font-size: 60px;
 

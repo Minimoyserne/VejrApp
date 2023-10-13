@@ -2,12 +2,10 @@ import { getCurrentPosition, getCoordinates } from "./cordinates.model.js";
 import { BuildMobilView, BuildTabletView, BuildPcView } from "./view.js";
 import { getWeatherData } from "./weatherdata.model.js";
 
-// let solop ="";
-// let solopgang = "";
 
 (async ()=>{
     const curPos = await getCurrentPosition()
-    console.log(curPos);
+ 
 
     const weatherData = await getWeatherData(curPos.latitude, curPos.longitude)
 
@@ -20,12 +18,6 @@ import { getWeatherData } from "./weatherdata.model.js";
     DataConversion(weatherData, myPlace);
 })()
 
-
-if (condition) {
-    
-} else {
-    
-}
 
 function weatherCodeToText(weatherCode) {
     let feedbackTekst = "";
@@ -120,14 +112,13 @@ function weatherCodeToText(weatherCode) {
     return feedbackTekst;
 }
 
-// console.log(solop)
+
 
 export function DataConversion(data, myPlace){
     
-    console.log(data);
     const bredde = window.innerWidth;
     const spacer = " ";
-    // Kode, der kun udføres på en pc-enhed
+   
     if (bredde <= 768) {
         // DOM-kode til mobil enhed
         console.log("Dette er en mobil enhed");
@@ -143,8 +134,6 @@ export function DataConversion(data, myPlace){
         const placering = document.querySelector(".sted");
         placering.innerText = `${myPlace.village || myPlace.city}`
 
-       
-        // Example usage:
         const vejrTypeIDag = data.daily.weathercode[0];
         const weatherCode = vejrTypeIDag;
         const weatherText = weatherCodeToText(weatherCode);
@@ -164,7 +153,7 @@ export function DataConversion(data, myPlace){
         vindpil.classList.add("fas", "fa-circle-arrow-down");
         const vindretningNu = data.hourly.winddirection_10m[0];
 
-        vindpil.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
+        vindpil.style.transform = `rotate(${vindretningNu}deg)`;
 
         
     } else if (bredde <= 1024) {
@@ -174,7 +163,6 @@ export function DataConversion(data, myPlace){
     BuildTabletView(data);
   
   
-    // Kode, der kun udføres på en tablet enhed
     } else {
     // DOM-kode til PC
 
