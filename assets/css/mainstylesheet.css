@@ -1,6 +1,7 @@
 /* font */
 /* ÆNDRE */
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 
 /* css link */
 @import url(./loader.css);
@@ -46,6 +47,7 @@ body {
     color: white;
     font-size: 3em;
     margin-top: 60px;
+    font-family: 'Roboto', sans-serif;
 }
 
 #myIcon {
@@ -71,7 +73,10 @@ body {
     padding: 0 10px 0 7px;
     
 }
-
+.sol-op, .sol-ned, .temp {
+    font-size: 15px;
+    font-weight: 100;
+}
 .hjul {
     position: fixed;
     left: 50%;
@@ -85,15 +90,7 @@ body {
     align-items: center;
     background-color: #D5E5F2;
     border-radius: 50%;
-    border: solid 20px #143259;
-}
-
-.top-hjul {
-    display: flex;
-    justify-content: center ;
-    align-items: center;
-    border-bottom: solid 1px black;
-    width: 70%;
+    border: solid 18px #143259;
 }
 
 .top-hjul {
@@ -108,13 +105,30 @@ body {
     padding-right: 7px;
     padding-bottom: 5px;
 }
+.vindhastighed {
+    font-size: 22px;
+    font-family: 'Roboto', sans-serif;
+}
 .temperatur {
     justify-content: center;
+    font-family: 'Roboto', sans-serif;
 }
 .grader {
     font-size: 67px;
 }
 
+.tid {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translatex(-50%);
+    text-align: center;
+    /* margin-top: 30px; */
+    font-size: 20px;
+    /* background-color: #14A44D; */
+    font-family: 'Roboto', sans-serif;
+
+}
 #myIcon {
     position: absolute;
     top: 0;

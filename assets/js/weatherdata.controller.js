@@ -15,7 +15,7 @@ import { getWeatherData } from "./weatherdata.model.js";
     const data = await getCoordinates(coords.longitude, coords.latitude);
 
     let myPlace = data.address 
-    console.log(myPlace);
+    
    
     DataConversion(weatherData, myPlace);
 })()
@@ -25,7 +25,7 @@ import { getWeatherData } from "./weatherdata.model.js";
 
 export function DataConversion(data, myPlace){
     
-    //console.log(data);
+    console.log(data);
     const bredde = window.innerWidth;
     const spacer = " ";
     // Kode, der kun udføres på en pc-enhed
@@ -34,9 +34,9 @@ export function DataConversion(data, myPlace){
         console.log("Dette er en mobil enhed");
         BuildMobilView(data);
         const sunrise = document.querySelector(".sol-op");
-        sunrise.innerHTML = data.daily.sunrise[0].split("T")[1].slice(0, 5);
+        sunrise.innerHTML = data.daily.sunrise[0].split("T")[1];
         const sunset = document.querySelector(".sol-ned");
-        sunset.innerHTML = data.daily.sunset[0].split("T")[1].slice(0, 5);
+        sunset.innerHTML = data.daily.sunset[0].split("T")[1];
 
         const Temp = document.querySelector(".temp");
         Temp.innerHTML = `H: ${data.daily.temperature_2m_max[0] + spacer + data.daily_units.temperature_2m_max} L: ${data.daily.temperature_2m_min[0] + spacer + data.daily_units.temperature_2m_min}`;
@@ -50,12 +50,13 @@ export function DataConversion(data, myPlace){
         const temperatur = document.querySelector(".grader");
         temperatur.innerHTML = parseInt(data.current.temperature_2m) + data.current_units.winddirection_10m;
 
+        const tid = document.querySelector(".tid");
+        tid.innerHTML = data.current.time.split("T")[1];
 
         let vindpil = document.querySelector("#myIcon");
         vindpil.classList.add("fas", "fa-circle-arrow-down");
         let vindretningNu = data.hourly.winddirection_10m[0];
-        console.log(vindretningNu);
-        console.log(vindpil);
+
         vindpil.style.transform = `rotate(${vindretningNu}deg)`; //her rotere pilen alt efter antal grader den får fra API
 
         

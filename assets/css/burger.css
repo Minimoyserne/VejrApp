@@ -4,7 +4,7 @@
     cursor: pointer;
     align-items: center;
     position: absolute;
-    bottom: 1.5%;
+    bottom: 3%;
     left: 50%;
     transform: translatex(-50%);
     z-index: 3;
@@ -14,7 +14,7 @@
     display: block;
     width: 35px;
     height: 3px;
-    background-color: #3F83BF;
+    background-color: black;
     margin: 3px;
     transition: 300ms;
 }
