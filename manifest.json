@@ -26,9 +26,24 @@
         },
         {
             "src": "./assets/image/icons2/mstile-150x150.png",
-            "sizes": "150x150",
+            "sizes": "270x270",
             "type": "image/png" 
             
         }
-    ]
+    ],
+    "screenshots": [
+        {
+          "src": "assets/image/screenshot/screenshot1.png",
+          "type": "image/png",
+          "sizes": "507x1080",
+          "form_factor": "wide"
+        },
+      
+      {
+        "src": "assets/image/screenshot/screenshot2.png",
+        "type": "image/png",
+        "sizes": "672x1334"
+      }
+      ]
+      
   }
