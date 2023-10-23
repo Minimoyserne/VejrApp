@@ -1,0 +1,34 @@
+{
+	"name": "Minimoyserne vejrApp",
+	"short_name": "vejrApp",
+	"start_url": "./index.html",
+	"id": "./index.html",
+	"display": "standalone",
+	"background_color": "#D5E5F2",
+	"theme_color": "#143259",
+    "description": "En vejr app udviklet af Minimoyserne",
+    "orientation": "portrait-primary",
+    "categories": [
+        "weather", "dailyWeather", "currentweather"
+    ],
+    "icons": [
+        {
+            "src": "./assets/image/icons2/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png" 
+
+        },
+        {
+            "src": "./assets/image/icons2/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png" 
+            
+        },
+        {
+            "src": "./assets/image/icons2/mstile-150x150.png",
+            "sizes": "150x150",
+            "type": "image/png" 
+            
+        }
+    ]
+  }
