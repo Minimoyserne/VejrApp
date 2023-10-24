@@ -178,7 +178,3 @@ if('serviceWorker' in navigator) {
 	.catch(err => console.error('service worker not registered', err)) 
 }
 
-// Fetch event
-self.addEventListener('fetch', event => {
-	console.log('Fetch event', event)
-})
