@@ -172,6 +172,7 @@ export function DataConversion(data, myPlace){
 
 }
 
+//registrer serviceworker hvis muligt
 if('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('./serviceWorker.js')
 	.then(reg => console.log('service worker registered', reg))
