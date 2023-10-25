@@ -1,22 +1,22 @@
 const myApp = document.getElementById('myApp');
 
-export function BuildLoadingScreen() {
+// export function BuildLoadingScreen() {
 
-    const loader = document.querySelector(".loader");
-    if (loader) {
-        loader.classList.add("loader-hidden");
-        loader.addEventListener("transitionend", () => {
-            if (document.body.contains(loader)) {
-                document.body.removeChild(loader);
-                console.log("Loader removed successfully.");
-            } else {
-                console.log("Loader element does not exist in the DOM.");
-            }
-        });
-    } else {
-        console.log("Loader element not found.");
-    }
-}
+//     const loader = document.querySelector(".loader");
+//     if (loader) {
+//         loader.classList.add("loader-hidden");
+//         loader.addEventListener("transitionend", () => {
+//             if (document.body.contains(loader)) {
+//                 document.body.removeChild(loader);
+//                 console.log("Loader removed successfully.");
+//             } else {
+//                 console.log("Loader element does not exist in the DOM.");
+//             }
+//         });
+//     } else {
+//         console.log("Loader element not found.");
+//     }
+// }
 
 export function BuildMobilView() {
     myApp.innerHTML = `
@@ -60,7 +60,7 @@ export function BuildMobilView() {
       </div>
       <div id="menu_items">
           <ul>
-              <button><a href="#">Anden lokalitet</a></button>
+              <button><a href="pages/anden-lokalitet.html">Anden lokalitet</a></button>
               <button><a href="#">Vejret de kommdende dage</a></button>
               <button><a href="#">Vind hastigheder</a></button>
           </ul>
